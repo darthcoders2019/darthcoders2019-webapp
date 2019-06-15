@@ -1,0 +1,39 @@
+.navStyle{
+    background-color: #808080;
+    height: 150px;
+    color: #ffffff;
+}
+
+.navSelection{
+    background-color: #545654;
+    height: 150px;
+}
+
+.paddingNav{
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.paddingNavBetween{
+    padding-left: 70px;
+}
+
+.addLike{
+    color:blue;
+}
+
+.navLinks, .navLinks:hover{
+    color:#ffffff;
+    text-decoration: none !important;
+}
+
+textarea {
+    resize: none;
+}
+
+.cameraBtn{
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: white;
+    border: none;
+}
