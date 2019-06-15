@@ -28,6 +28,7 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { FeedComponent } from './dashboard/feed/feed.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { PostsComponent } from './user/posts/posts.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AuthGuard } from './auth.guard';
 import { ApiInterceptor } from './api.interceptor';
@@ -53,6 +54,7 @@ import { ApiInterceptor } from './api.interceptor';
     SpeechModule,
     TextModule,
     HttpClientModule,
+    AngularFontAwesomeModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
