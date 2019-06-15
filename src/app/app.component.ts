@@ -8,15 +8,14 @@ import { MessagingService } from './shared/messaging.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'darthcoders2019-webapp';
 
   message;
 
   constructor(
     private messagingService: MessagingService,
-    private translate: TranslateService
+    private translateService: TranslateService
   ) {
-    this.translate.setDefaultLang('fr');
+    this.translateService.setDefaultLang('en');
   }
 
   ngOnInit() {
@@ -25,6 +24,14 @@ export class AppComponent {
   }
 
   useLanguage(language: string) {
-    this.translate.use(language);
+    this.translateService.use(language);
+  }
+
+  public toggleFrenchLanguage(event): void {
+    event && event.checked === true ? this.translateService.use("fr") : this.translateService.use("en");
+  }
+
+  public toggleDarkMode(event): void {
+
   }
 }
