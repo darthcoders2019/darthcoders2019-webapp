@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { MessagingService } from './shared/messaging.service';
 
+import { ThemeService } from './theme-service.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +15,8 @@ export class AppComponent {
 
   constructor(
     private messagingService: MessagingService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private themeService: ThemeService
   ) {
     this.translateService.setDefaultLang('en');
   }
@@ -32,6 +35,6 @@ export class AppComponent {
   }
 
   public toggleDarkMode(event): void {
-
+    event && event.checked === true ?  this.themeService.toggleDark() : this.themeService.toggleLight();
   }
 }
