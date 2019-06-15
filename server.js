@@ -6,11 +6,11 @@ const app = express();
  
 // Serve only the static files form the dist directory
 // Replace the '/dist/<to_your_project_name>'
-app.use(express.static(__dirname + '/dist/my-dream-app'));
+app.use(express.static(__dirname + '/dist/darthcoders2019-webapp'));
  
 app.get('*', function(req,res) {
-  // Replace the '/dist/my-dream-app/index.html'
-  res.sendFile(path.join(__dirname + '/dist/my-dream-app/index.html'));
+  // Replace the '/dist/darthcoders2019-webapp/index.html'
+  res.sendFile(path.join(__dirname + '/dist/darthcoders2019-webapp/index.html'));
 });
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
