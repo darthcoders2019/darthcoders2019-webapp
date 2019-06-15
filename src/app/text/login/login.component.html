@@ -5,28 +5,42 @@
       <!-- <h1 class="text-center">Welcome to {{ app_name }}</h1> -->
     </div>
   </div>
-
-  <div class="row mt-3 card p-4">
-    <div class="col-12 info">
-      <h2>Please sign in to access your dashboard.</h2>
-    </div>
-
-    <div class="col-12 mt-2">
-      <!-- <form> -->
-        <div class="form-group">
-          <label for="user_email">Email address</label>
-          <input type="email" class="form-control" id="user_email" aria-describedby="email_help" placeholder="ex: user@email.com" [(ngModel)]="user.email" required>
-          <small id="email_help" class="form-text text-muted">Please enter your email address to access your account</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="user_password" class="form-control" id="user_password" aria-describedby="password_help" placeholder="ex: password" [(ngModel)]="user.password" required>
-          <small id="password_help" class="form-text text-muted">Please enter your password to access your account</small>
+  <div class="row mt-3 p-4">
+    <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="card">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="text-center card-header loginHeader">Please sign in to access your dashboard</h1>
+          </div>
         </div>
         
-        <button class="btn btn-primary mr-2" (click)="login()">Access my account</button>
-        <button class="btn btn-light" routerLink="/text/register">Create my account</button>
-      <!-- </form>  -->
+        <!-- <form> -->
+        <div class="pr-3 pl-3 mt-3">
+          <div class="form-group">
+            <label for="user_email" class="labelSize">Email address</label>
+            <input type="email" class="form-control form-control-lg" id="user_email" aria-describedby="email_help" placeholder="ex: user@email.com" [(ngModel)]="user.email" required>
+            <small id="email_help" class="helpSize form-text text-muted">Please enter your email address to access your account</small>
+          </div>
+          <div class="form-group" class="labelSize">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control form-control-lg" id="user_password" aria-describedby="password_help" placeholder="ex: password" [(ngModel)]="user.password" required>
+            <small id="password_help" class="helpSize form-text text-muted">Please enter your password to access your account</small>
+          </div>
+        </div>
+        
+        <div class="row mt-3">
+          <div class="col-lg-6 col-md-6 col-sm-6 text-center mb-3">
+            <button class="button button--primary mr-2" (click)="login()">Access my account</button>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 text-center mb-3">
+            <button class="button button--outline" routerLink="/text/register">Create my account</button>
+          </div>
+        </div>
+        <!-- </form>  -->
+
+      </div>
     </div>
+    <div class="col-lg-2 col-md-2 col-sm-2"></div>
   </div>
 </div>

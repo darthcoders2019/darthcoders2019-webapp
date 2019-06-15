@@ -1,0 +1,81 @@
+<nav class="navStyle">
+  <div class="container-fluid paddingNav">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3 text-center">
+        <a href="" class="navLinks">
+          <div class="navSelection pt-3">
+            <span><i class="fa fa-home fa-4x"></i></span><br />
+            <h3>Home</h3>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 text-center paddingNavBetween">
+        <a href="" class="navLinks">
+          <div class="navSelection pt-3">
+            <span><i class="fa fa-edit fa-4x"></i></span><br />
+            <h3>My Posts</h3>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 text-center paddingNavBetween">
+        <a href="" class="navLinks">
+          <div class="navSelection pt-3">
+            <span><i class="fa fa-cog fa-4x"></i></span><br />
+            <h3>Settings</h3>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 text-center paddingNavBetween">
+        <a href="" class="navLinks">
+          <div class="navSelection pt-3">
+            <span><i class="fa fa-sign-out-alt fa-4x"></i></span><br />
+            <h3>Logout</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!--Create Post-->
+<div class="container-fluid">
+  <div class="row mt-5 mb-5">
+    <div class="col-lg-3 col-md-3 col-sm-3"></div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="card">
+        <div class="form-group">
+          <textarea class="form-control" id="post" rows="5" placeholder="Type something..." [(ngModel)]="post.description"></textarea>
+        </div>
+        
+        <div class="row mb-2">
+          <div class="col-lg-3 col-md-3 col-sm-3 pl-4">
+            <button type="button" class="cameraBtn">
+              <!-- <i class="fa fa-camera fa-2x"></i> -->
+
+              <img *ngIf="url.length" [src]="url" height="200"> <br/>
+              <input type='file' accept="image/x-png,image/jpeg" (change)="onSelectFile($event)">
+            </button>
+          </div>
+          
+          <div class="col-lg-9 col-md-9 col-sm-9 pr-4">
+            <button class="btn btn-primary float-right" (click)="createPost()">Upload</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3"></div>
+  </div>
+</div>
+
+<!--Posts-->
+<div class="container-fluid">
+  <div class="row mt-5 mb-5" *ngFor="let postitem of post_list;">
+    <div class="col-lg-3 col-md-3 col-sm-3"></div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <app-post [post]="postitem"></app-post>
+      <!-- [post] -->
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3"></div>
+  </div>
+</div>
