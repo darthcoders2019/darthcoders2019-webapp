@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-landingpage',
@@ -7,22 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingpageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-  isShownStep1: boolean = true;
-  isShownStep2: boolean = false ; // hidden by default
   
-
-  speechBtn() {
-    this.isShownStep1 = false;
-    this.isShownStep2 = ! this.isShownStep2;
+  public useSpeechModule(): void {
+    this.router.navigate(['speech/login']);
   }
 
-  textBtn() {
-    this.isShownStep1 = false;
-    this.isShownStep2 = ! this.isShownStep2;
+  public useTextModule(): void {
+    this.router.navigate(['text/login']);
   }
 
 }

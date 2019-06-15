@@ -6,16 +6,16 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
     {
-        path: 'login',
+        path: 'speech/login',
         component: LoginComponent
       },
       {
-        path: 'register',
+        path: 'speech/register',
         component: RegisterComponent
       },
       {
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'speech/login',
         pathMatch: 'full'
       }
 ];
