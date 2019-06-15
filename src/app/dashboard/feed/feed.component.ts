@@ -11,6 +11,7 @@ import { ImageService } from '../../image.service';
 export class FeedComponent implements OnInit {
 
   public post_list;
+  public post:any;
 
   constructor(
     private postService: PostService,
@@ -18,6 +19,7 @@ export class FeedComponent implements OnInit {
     private router: Router
   ) { 
     this.post_list = [];
+    this.post = {};
   }
 
   ngOnInit() {
