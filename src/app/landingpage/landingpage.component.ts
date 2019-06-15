@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Speech from 'speak-tts';
+import { SpeechService } from 'ngx-speech';
 
 @Component({
   selector: 'app-landingpage',
@@ -10,7 +11,7 @@ import Speech from 'speak-tts';
 export class LandingpageComponent implements OnInit {
   speech;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public speechService: SpeechService) {
     this.speech = new Speech(); // will throw an exception if not browser supported
     if (this.speech.hasBrowserSupport()) {
       // returns a boolean
@@ -19,6 +20,7 @@ export class LandingpageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.speechService.start();
     this.speech.init({
       volume: 1,
       lang: 'en-GB',
@@ -32,6 +34,12 @@ export class LandingpageComponent implements OnInit {
         }
       }
     });
+  }
+
+  order() {
+    console.log(true);
+
+    this.router.navigate(['text/login']);
   }
 
   speak(text) {

@@ -9,10 +9,17 @@
     </div>
   </div>
 
+  <!-- <div [ngSpeechContext]="['pizza']" [ngSpeechAction]="order">
+    Say "pizza" and then choose your pizza
+  </div> -->
+
+  <li [ngSpeechActionCommand]="'test'" [ngSpeechAction]="order">test
+  </li>
+
   <div class="row mt-5 text-center">
     <div class="col-lg-6 col-md-6 col-sm-6">
-      <button type="button" class="button button--primary" (click)="useSpeechModule()" (focus)="speak('Speech')"
-        tabindex=3>Speech</button>
+      <button type="button" class="button button--primary" (click)="useSpeechModule()"
+        (focus)="speak('Speech button press if vision issue')" tabindex=3>Speech</button>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6">
       <button type="button" class='button button--outline' (click)="useTextModule()" (focus)="speak('Text')"
