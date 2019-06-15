@@ -1,4 +1,16 @@
 
+h1{
+    font-size: 65px !important;
+}
+
+h2{
+    font-size: 45px !important;
+}
+
+h3{
+    font-size: 35px !important;
+}
+
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
@@ -9,4 +21,12 @@ body { margin: 0;
 }
 h1,h2,h3,h4,h5,h6,span,p {
 	color: var(--text-color);
+}
+
+.labelSize{
+    font-size:30px;
+}
+
+.helpSize{
+    font-size: 20px;
 }
