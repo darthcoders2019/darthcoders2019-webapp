@@ -25,4 +25,12 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  public reset_new_user() :void {
+    this.constructNewUserObj();
+  }
+
+  create_new_user(): void {
+    console.log('this.newUser', this.newUser);
+  }
+
 }
