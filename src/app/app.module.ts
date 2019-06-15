@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import Speech from 'speak-tts';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
@@ -29,7 +30,13 @@ import { SettingsComponent } from './user/settings/settings.component';
 import { PostsComponent } from './user/posts/posts.component';
 
 @NgModule({
-  declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent],
+  declarations: [
+    AppComponent,
+    LandingpageComponent,
+    FeedComponent,
+    SettingsComponent,
+    PostsComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -54,7 +61,7 @@ import { PostsComponent } from './user/posts/posts.component';
       enabled: environment.production
     })
   ],
-  providers: [MessagingService, AsyncPipe],
+  providers: [MessagingService, AsyncPipe, Speech],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
