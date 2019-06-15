@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const AUTH_URL = 'https://darthcoders-backend.herokuapp.com/api/auth/';
+const AUTH_URL = 'https://darthcoders-backend.herokuapp.com/api/public/auth/';
 
 @Injectable({
   providedIn: 'root'

@@ -23,10 +23,13 @@ import { TextModule } from './text/text.module';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FeedComponent } from './dashboard/feed/feed.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { PostsComponent } from './user/posts/posts.component';
+
+import { AuthGuard } from './auth.guard';
+import { ApiInterceptor } from './api.interceptor';
 
 @NgModule({
   declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent],
@@ -54,7 +57,16 @@ import { PostsComponent } from './user/posts/posts.component';
       enabled: environment.production
     })
   ],
-  providers: [MessagingService, AsyncPipe],
+  providers: [
+    MessagingService, 
+    AsyncPipe,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
