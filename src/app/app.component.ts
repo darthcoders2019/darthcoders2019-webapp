@@ -23,4 +23,8 @@ export class AppComponent {
     this.messagingService.receiveMessage();
     this.message = this.messagingService.currentMessage;
   }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
+  }
 }

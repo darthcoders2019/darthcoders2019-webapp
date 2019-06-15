@@ -1,4 +1,7 @@
-<h1>
-    {{'menu.title' | translate}}
-</h1>
+<button (click)="useLanguage('en')">en</button>
+<button (click)="useLanguage('fr')">fr</button>
+
 <router-outlet></router-outlet>
+
+{{ message | async | json }}
+{{ 'menu.title' | translate}}
