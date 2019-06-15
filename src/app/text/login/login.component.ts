@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   private lat: string;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.user = {};
   }
@@ -43,10 +45,14 @@ export class LoginComponent implements OnInit {
         
         sessionStorage.setItem('id', res.id);
         sessionStorage.setItem('token', res.token);
+
+        this.router.navigate(['dashboard/feed']);
       },
       (err) => { 
         if (err.error && err.error.error) {
-          console.log('invalid credentials');
+          console.error('invalid credentials');
+        } else {
+          console.error('server error');
         }
       }
     );

@@ -5,7 +5,7 @@ import { FeedComponent } from './dashboard/feed/feed.component'
 
 const routes: Routes = [
   { path: 'home', component: LandingpageComponent},
-  { path: 'feed', component: FeedComponent},
+  { path: 'dashboard/feed', component: FeedComponent},
   { path: 'speech', loadChildren: './speech/speech.module#SpeechModule' },
   { path: 'text', loadChildren: './text/text.module#TextModule' },
   { path: '', redirectTo: '/home', pathMatch: 'full'},

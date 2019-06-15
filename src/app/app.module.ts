@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatChipsModule } from '@angular/material/chips';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,9 +32,10 @@ import { PostsComponent } from './user/posts/posts.component';
 
 import { AuthGuard } from './auth.guard';
 import { ApiInterceptor } from './api.interceptor';
+import { PostComponent } from './shared/post/post.component';
 
 @NgModule({
-  declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent],
+  declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent, PostComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,7 +44,9 @@ import { ApiInterceptor } from './api.interceptor';
     AngularFireMessagingModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
+    FormsModule,
     HttpClientModule,
+    MatChipsModule,
     MatSlideToggleModule,
     SpeechModule,
     TextModule,
@@ -58,7 +63,7 @@ import { ApiInterceptor } from './api.interceptor';
     })
   ],
   providers: [
-    MessagingService, 
+    MessagingService,
     AsyncPipe,
     AuthGuard,
     {
@@ -69,7 +74,7 @@ import { ApiInterceptor } from './api.interceptor';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
