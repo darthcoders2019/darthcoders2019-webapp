@@ -21,9 +21,12 @@ import { TextModule } from './text/text.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FeedComponent } from './dashboard/feed/feed.component';
+import { SettingsComponent } from './user/settings/settings.component';
+import { PostsComponent } from './user/posts/posts.component';
 
 @NgModule({
-  declarations: [AppComponent, LandingpageComponent],
+  declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
