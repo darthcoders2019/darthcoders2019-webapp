@@ -16,7 +16,7 @@ export class AppComponent {
     private messagingService: MessagingService,
     private translate: TranslateService
   ) {
-    translate.setDefaultLang('fr');
+    this.translate.setDefaultLang('fr');
   }
 
   ngOnInit() {

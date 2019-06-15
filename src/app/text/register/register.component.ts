@@ -17,11 +17,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.constructNewUserObj();
-
-    navigator.geolocation.getCurrentPosition(pos => {
-      this.newUser.lng = (+pos.coords.longitude).toString();
-      this.newUser.lat = (+pos.coords.latitude).toString();
-    });
   }
 
   private constructNewUserObj(): void {
@@ -33,6 +28,11 @@ export class RegisterComponent implements OnInit {
       lat: null,
       lng: null
     }
+
+    navigator.geolocation.getCurrentPosition(pos => {
+      this.newUser.lng = (+pos.coords.longitude).toString();
+      this.newUser.lat = (+pos.coords.latitude).toString();
+    });
   }
 
   public reset_new_user(): void {

@@ -9,7 +9,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { MessagingService } from './shared/messaging.service';
-import { AsyncPipe } from '../../node_modules/@angular/common';
+import { AsyncPipe } from '@angular/common';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
