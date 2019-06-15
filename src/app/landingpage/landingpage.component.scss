@@ -1,15 +1,17 @@
 h1 {
-    font-size: 5.5rem;
+    font-size: 65px;
 }
 
 p{
-    font-size: 3rem;
+    font-size: 2.0rem;
 }
 
 .button {
-    border-radius: 100px;
-    font-size: 15px;
+    border-radius: 30px;
+    font-size: 2.5rem;
     padding: 10px 50px;
+    width: 80%;
+    height:200px;
     &--primary {
         color: white; 
         border: solid 3px transparent;
@@ -35,7 +37,7 @@ p{
         box-shadow: 2px 1000px 1px #fff inset;
         &:hover  {
             box-shadow: none;
-            color: black;
+            color: white;
             
         }
     }
