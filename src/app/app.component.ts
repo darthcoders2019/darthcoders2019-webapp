@@ -3,6 +3,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { MessagingService } from './shared/messaging.service';
 import Speech from 'speak-tts';
 
+import { ThemeService } from './theme-service.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,14 +17,15 @@ export class AppComponent {
 
   constructor(
     private messagingService: MessagingService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private themeService: ThemeService
   ) {
     this.speech = new Speech(); // will throw an exception if not browser supported
     if (this.speech.hasBrowserSupport()) {
       // returns a boolean
       console.log('speech synthesis supported');
     }
-    this.translate.setDefaultLang('en');
+    this.translateService.setDefaultLang('en');
   }
 
   ngOnInit() {
@@ -87,14 +90,18 @@ export class AppComponent {
         }
       });
 
-    this.translate.use(language);
+    this.translateService.use(language);
   }
 
   public toggleFrenchLanguage(event): void {
-    event && event.checked === true ? this.translateService.use("fr") : this.translateService.use("en");
+    event && event.checked === true
+      ? this.translateService.use('fr')
+      : this.translateService.use('en');
   }
 
   public toggleDarkMode(event): void {
-
+    event && event.checked === true
+      ? this.themeService.toggleDark()
+      : this.themeService.toggleLight();
   }
 }

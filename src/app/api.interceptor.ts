@@ -27,6 +27,13 @@ export class ApiInterceptor implements HttpInterceptor {
         //     }
         //   }
 
+        if (req.url.includes('/private/')) {
+            if (sessionStorage.length > 0) {
+                this.token = sessionStorage.getItem('token');
+            }
+        }
+
+
         return next.handle(req);
     }
 }

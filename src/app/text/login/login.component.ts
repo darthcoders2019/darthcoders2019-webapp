@@ -39,11 +39,15 @@ export class LoginComponent implements OnInit {
     }
 
     this.authService.login(this.user).subscribe(
-      (res) => { 
-        console.log(res);
+      (res: any) => { 
+        
+        sessionStorage.setItem('id', res.id);
+        sessionStorage.setItem('token', res.token);
       },
       (err) => { 
-        console.log(err);
+        if (err.error && err.error.error) {
+          console.log('invalid credentials');
+        }
       }
     );
   }
