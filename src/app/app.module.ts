@@ -7,6 +7,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 
+import { SpeechModule } from './speech/speech.module';
+import { TextModule } from './text/text.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +18,8 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SpeechModule,
+    TextModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
