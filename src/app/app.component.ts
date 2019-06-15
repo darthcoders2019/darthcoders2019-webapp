@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { TranslateService } from '@ngx-translate/core';
 import { MessagingService } from './shared/messaging.service';
 
 @Component({
@@ -12,11 +12,14 @@ export class AppComponent {
 
   message;
 
-  constructor(private messagingService: MessagingService) {}
+  constructor(
+    private messagingService: MessagingService,
+    private translate: TranslateService
+  ) {
+    translate.setDefaultLang('fr');
+  }
 
   ngOnInit() {
-    const userId = 'user001';
-    this.messagingService.requestPermission(userId);
     this.messagingService.receiveMessage();
     this.message = this.messagingService.currentMessage;
   }

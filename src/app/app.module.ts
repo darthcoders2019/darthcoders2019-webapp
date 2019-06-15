@@ -19,6 +19,10 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { SpeechModule } from './speech/speech.module';
 import { TextModule } from './text/text.module';
 
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent, LandingpageComponent],
   imports: [
@@ -31,6 +35,14 @@ import { TextModule } from './text/text.module';
     HttpClientModule,
     SpeechModule,
     TextModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     })
@@ -39,3 +51,7 @@ import { TextModule } from './text/text.module';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
