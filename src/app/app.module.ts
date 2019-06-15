@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common';
 import Speech from 'speak-tts';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -58,6 +59,7 @@ import { PostComponent } from './shared/post/post.component';
     TextModule,
     HttpClientModule,
     AngularFontAwesomeModule,
+    CommonModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

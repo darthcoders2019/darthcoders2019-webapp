@@ -15,7 +15,7 @@ export class ImageService {
   //   //Response.url
   // }
 
-  uploadDoc(formData) {
+  uploadImage(formData) {
     return this.http.post(IMAGE_URL, formData);
   }
 
