@@ -5,14 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { LandingpageComponent } from './landingpage/landingpage.component';
+
+import { SpeechModule } from './speech/speech.module';
+import { TextModule } from './text/text.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LandingpageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SpeechModule,
+    TextModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
