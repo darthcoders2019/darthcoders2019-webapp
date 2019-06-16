@@ -88,6 +88,7 @@ export class FeedComponent implements OnInit {
         (res: any) => {
           console.log(res);
           this.post.image_url = res.url;
+          this.post.image_name = this.image.name;
           this.insertPostInDB();
         },
         (err) => {
