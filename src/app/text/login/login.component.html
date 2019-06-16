@@ -1,6 +1,17 @@
+<div class="row mt-3 mr-2 ml-2">
+  <div class="col-lg-3 col-md-3 col-sm-3 text-center mb-3">
+    <button class="button button--primary mr-2" (click)="backToHomepage()" [ngSpeechActionCommand]="'backToHomepage'"
+      [ngSpeechAction]="homepage" (focus)="speak('Press enter or say homepage to redirect back', true)"
+      tabindex=3>Back</button>
+  </div>
+  <div class="col-lg-9 col-md-9 col-sm-9 text-center mb-9">
 
+  </div>
+</div>
 <div class="container mt-5">
-	<div class="row">
+
+
+  <div class="row">
     <div class="col-lg-12 col-md-12 col-12" role="heading">
       <!-- <h1 class="text-center">Welcome to {{ app_name }}</h1> -->
     </div>
@@ -11,30 +22,47 @@
       <div class="card">
         <div class="row">
           <div class="col-12">
-            <h2 class="text-center card-header loginHeader">Please sign in to access your dashboard</h2>
+            <h2 class="text-center card-header loginHeader" tabindex=3
+              (focus)="speak('Please sign in to access your dashboard', false)">Please sign in to access your dashboard
+            </h2>
           </div>
         </div>
-        
+
         <!-- <form> -->
-        <div class="pr-3 pl-3 mt-3">
+        <div class="pr-3 pl-3 mt-3" role="form">
           <div class="form-group">
-            <label for="user_email" class="labelSize">Email address</label>
-            <input type="email" class="form-control form-control-lg" id="user_email" aria-describedby="email_help" placeholder="ex: user@email.com" [(ngModel)]="user.email" required>
-            <small id="email_help" class="helpSize form-text text-muted">Please enter your email address to access your account</small>
+            <label for="user_email" class="labelSize" (focus)="speak('Email address', false)" tabindex=4>Email
+              address</label>
+            <input type="email" class="form-control form-control-lg" id="user_email"
+              (focus)="speak('Enter email address', false)" tabindex=5 aria-describedby="email_help"
+              placeholder="ex: user@email.com" [(ngModel)]="user.email" required>
+            <small id="email_help" class="helpSize form-text text-muted" (focus)="speak('Please enter your email address to access your
+            account', false)" tabindex=6>Please enter your email address to access your
+              account</small>
           </div>
           <div class="form-group" class="labelSize">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control form-control-lg" id="user_password" aria-describedby="password_help" placeholder="ex: password" [(ngModel)]="user.password" required>
-            <small id="password_help" class="helpSize form-text text-muted">Please enter your password to access your account</small>
+            <label for="exampleInputPassword1" (focus)="speak('Password', false)" tabindex=7>Password</label>
+            <input type="password" class="form-control form-control-lg" id="user_password"
+              (focus)="speak('Enter Password', false)" tabindex=8 aria-describedby="password_help"
+              placeholder="ex: password" [(ngModel)]="user.password" required>
+            <small id="password_help" class="helpSize form-text text-muted" (focus)="speak('Please enter your password to access your
+            account', false)" tabindex=9>Please enter your password to access your
+              account</small>
           </div>
         </div>
-        
+
         <div class="row mt-3 mr-2 ml-2">
           <div class="col-lg-6 col-md-6 col-sm-6 text-center mb-3">
-            <button class="button button--primary mr-2" (click)="login()">Access my account</button>
+            <button class="button button--primary mr-2" (click)="login()" [ngSpeechActionCommand]="'connect'"
+              [ngSpeechAction]="login"
+              (focus)="speak('Access my account, press enter or say connect via your microphone', true)"
+              tabindex=10>Access my account</button>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 text-center mb-3">
-            <button class="button button--outline" routerLink="/text/register">Create my account</button>
+            <button class="button button--outline" routerLink="/text/register" [ngSpeechActionCommand]="'create'"
+              [ngSpeechAction]="createAccount"
+              (focus)="speak('Create my account, press enter or say create via your microphone', true)"
+              tabindex=11>Create my account</button>
           </div>
         </div>
         <!-- </form>  -->
@@ -44,3 +72,6 @@
     <div class="col-lg-2 col-md-2 col-sm-2"></div>
   </div>
 </div>
+
+<br/><br/>
+<br/>

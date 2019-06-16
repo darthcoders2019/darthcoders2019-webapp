@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Router } from "@angular/router";
 import { PostService } from '../../post.service';
@@ -8,7 +8,8 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss']
+  styleUrls: ['./feed.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeedComponent implements OnInit {
 
@@ -20,6 +21,7 @@ export class FeedComponent implements OnInit {
 
   constructor(
     private postService: PostService,
+    private ref: ChangeDetectorRef,
     private imageService: ImageService,
     private router: Router
   ) {
@@ -52,6 +54,7 @@ export class FeedComponent implements OnInit {
           res_post.post_date = moment(res_post.post_date).format('DD/MM/YY HH:mm')
           return res_post;
         });
+        this.ref.detectChanges();
       },
       (err) => {
         // toast error
@@ -66,6 +69,7 @@ export class FeedComponent implements OnInit {
         };
         this.url = [];
         this.getPosts();
+        this.ref.detectChanges();
       },
       (err) => {
         console.error(err);

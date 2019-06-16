@@ -2,61 +2,45 @@
 
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
-      <h1 class="text-center mt-5" (focus)="speak('DarthCoders online news platform', false)" tabindex=4>
+      <h1 class="text-center mb-5 mt-5" (focus)="speak('DarthCoders online news platform', false)" tabindex=4>
         DarthCoders online news platform
       </h1>
     </div>
   </div>
 
-  <div class="row mt-2 text-center">
-    <div class="col-lg-6 col-md-6 col-sm-6">
+  <div class="row mb-4 text-center">
+    <div class="col-lg-6 col-md-6 col-sm-6 mb-3">
       <button type="button" class="button button--primary" (click)="useSpeechModule()"
         (focus)="speak('Speech button, press enter or say speech via your microphone', true)" tabindex=6
         [ngSpeechActionCommand]="'speech'" [ngSpeechAction]="order"><i class="fa fa-microphone"></i>Speech</button>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="col-lg-6 col-md-6 col-sm-6 mb-5">
       <button type="button" class='button button--outline' (click)="useTextModule()"
         (focus)="speak('Text button, press enter or say text via your microphone', true)" tabindex=7
-        [ngSpeechActionCommand]="'Text'" [ngSpeechAction]="order"><i class="fa fa-keyboard"></i>Text</button>
+        [ngSpeechActionCommand]="'Text'" [ngSpeechAction]="order1"><i class="fa fa-keyboard"></i>Text</button>
     </div>
   </div>
 
-  <div>
-    <div class="row mt-5 mb-2" *ngFor="let post of post_list | paginate: { itemsPerPage: 1, currentPage: p };">
-      <div class="col-lg-2 col-md-2 col-sm-2"></div>
-      <div class="col-lg-8 col-md-8 col-sm-8" tabindex=7 (focus)="speak(post.index)">
-        <div class="card p-4">
-          <h3>{{ post.user_id.fullname }}</h3>
-          <h5>{{ post.post_date }}</h5>
-          <img *ngIf="post.image_url" class="card-img-top" style="width:110px" [src]="post.image_url" alt="Post image">
-          <div class="card-body">
-            <!-- <h5 class="card-title">Card title</h5> -->
 
-            <p class="card-text" style="font-size: 1.5rem">
-              {{ post.description }}
-            </p>
-            <hr>
-            <span><i class="fa fa-thumbs-up fa-2x"></i></span> {{ post.likes }} likes
-          </div>
+  <div class="row mt-4 mb-5">
+    <div class="col-lg-6 col-md-6 col-sm-6 mb-3" *ngFor="let post of post_list">
+      <div class="card p-4 h-100" tabindex=8 (focus)="speak(post.index)">
+        <h3>{{ post.user_id.fullname || ' ' }}</h3>
+        <h5>{{ post.post_date }}</h5>
+        <img *ngIf="post.image_url" class="card-img-top" style="width:110px" [src]="post.image_url" alt="Post image">
+        <div class="card-body">
+          <!-- <h5 class="card-title">Card title</h5> -->
+
+          <p class="card-text" style="font-size: 1.5rem">
+            {{ post.description || ' ' }}
+          </p>
+          <hr>
+          <span><i class="fa fa-thumbs-up fa-2x"></i></span> {{ post.likes }} likes
         </div>
-
-        <!-- [post] -->
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-2"></div>
-    </div>
-  </div>
-
-  <div class="row mt-5 mb-5">
-    <div class="col-lg-2 col-md-2 col-sm-2"></div>
-    <div class="col-lg-8 col-md-8 col-sm-8">
-      <div class="row justify-content-center" style="margin-left:-48px">
-        <pagination-controls (focus)="speak('Pagination menu press tab and then enter', false)"
-          (pageChange)="p = $event" tabindex=8>
-        </pagination-controls>
-
       </div>
     </div>
-    <div class="col-lg-2 col-md-2 col-sm-2"></div>
   </div>
 
 </div>
+
+<br/>
