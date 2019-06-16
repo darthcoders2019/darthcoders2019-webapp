@@ -15,6 +15,7 @@ export class AppComponent {
   speech;
   message;
   isDarkModeOn;
+  isSignedIn: boolean;
 
   constructor(
     private messagingService: MessagingService,
@@ -24,10 +25,10 @@ export class AppComponent {
   ) {
     this.speech = new Speech(); // will throw an exception if not browser supported
     if (this.speech.hasBrowserSupport()) {
-      // returns a boolean
-      console.log('speech synthesis supported');
+      console.log('Speech synthesis is supported');
     }
     this.translateService.setDefaultLang('en');
+    this.isSignedIn = false;
   }
 
   ngOnInit() {
@@ -51,6 +52,13 @@ export class AppComponent {
     this.messagingService.requestPermission(userId);
     this.messagingService.receiveMessage();
     this.message = this.messagingService.currentMessage;
+
+    if (!sessionStorage.length || sessionStorage.getItem('token') == null) {
+      this.isSignedIn = false;
+    } else {
+      this.isSignedIn = true;
+    }
+    
   }
 
   speak() {
@@ -114,5 +122,6 @@ export class AppComponent {
   public logout() {
     sessionStorage.clear();
     this.router.navigate(['home']);
+    location.reload();
   }
 }

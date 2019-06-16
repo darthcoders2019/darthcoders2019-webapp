@@ -27,6 +27,10 @@ export class LoginComponent implements OnInit {
       this.lng = (+pos.coords.longitude).toString();
       this.lat = (+pos.coords.latitude).toString();
     });
+
+    if (sessionStorage.length && sessionStorage.getItem('token')) {
+      this.router.navigate(['dashboard/feed']);
+    }
   }
 
   public login(): void {
@@ -48,6 +52,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('token', res.token);
 
         this.router.navigate(['dashboard/feed']);
+        location.reload();
       },
       (err) => { 
         if (err.error && err.error.error) {
