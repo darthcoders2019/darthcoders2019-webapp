@@ -5,6 +5,7 @@
     <div class="col-lg-6 col-md-6 col-sm-6">
       <div class="card card-mode">
         <div class="form-group">
+          <label for="post" class='sr-only'>Enter your posts</label>
           <textarea class="form-control" id="post" rows="5" placeholder="Type something..." [(ngModel)]="post.description"></textarea>
         </div>
         
@@ -30,7 +31,7 @@
 </div>
 
 <!--Posts-->
-<div class="container-fluid" *ngIf="post_list.length">
+<div class="container-fluid" *ngIf="post_list.length" role="presentation">
   <div class="row mt-5 mb-5" *ngFor="let postitem of post_list;">
     <div class="col-lg-3 col-md-3 col-sm-3"></div>
     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -40,3 +41,5 @@
     <div class="col-lg-3 col-md-3 col-sm-3"></div>
   </div>
 </div>
+
+<br/><br/>
