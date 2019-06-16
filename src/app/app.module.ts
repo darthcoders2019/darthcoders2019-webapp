@@ -45,7 +45,7 @@ import { ApiInterceptor } from './api.interceptor';
 import { PostComponent } from './shared/post/post.component';
 import { MyPostsComponent } from './dashboard/my-posts/my-posts.component';
 import {NgwWowModule} from 'ngx-wow';
-
+import { NgwWowService } from 'ngx-wow';
 @NgModule({
   declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent, PostComponent, MyPostsComponent],
   imports: [
@@ -92,7 +92,12 @@ import {NgwWowModule} from 'ngx-wow';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private wowService: NgwWowService) {
+    this.wowService.init();
+  }
+}
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
