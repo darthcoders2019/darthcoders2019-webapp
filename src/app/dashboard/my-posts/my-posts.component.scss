@@ -26,23 +26,3 @@
     color:#ffffff;
     text-decoration: none !important;
 }
-
-@media screen and (max-width: 600px) {
-    .navLinks{
-        display:none;
-    }
-    .navStyle{
-        display: none;
-    }
-}
-
-textarea {
-    resize: none;
-}
-
-.cameraBtn{
-    padding-left: 0px;
-    padding-right: 0px;
-    background-color: white;
-    border: none;
-}

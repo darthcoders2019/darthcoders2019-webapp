@@ -44,6 +44,7 @@ export class MessagingService {
   requestPermission(userId) {
     this.angularFireMessaging.requestToken.subscribe(
       token => {
+        localStorage.setItem('fcmToken', token);
         //this.updateToken(userId, token);
       },
       err => {

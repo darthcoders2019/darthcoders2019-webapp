@@ -1,5 +1,8 @@
 {
   "menu": {
     "title": "francais"
+  },
+  "landingPage": {
+    "title": "Plateforme d'informations en ligne de DarthCoders"
   }
 }

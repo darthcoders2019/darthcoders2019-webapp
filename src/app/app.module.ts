@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core'
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 import Speech from 'speak-tts';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +20,8 @@ import { MessagingService } from './shared/messaging.service';
 import { AsyncPipe } from '@angular/common';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 import { environment } from '../environments/environment';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 
@@ -40,14 +43,16 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AuthGuard } from './auth.guard';
 import { ApiInterceptor } from './api.interceptor';
 import { PostComponent } from './shared/post/post.component';
+import { MyPostsComponent } from './dashboard/my-posts/my-posts.component';
 
 @NgModule({
-  declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent, PostComponent],
+  declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent, PostComponent, MyPostsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    NgxPaginationModule,
     SpeechModule,
     AngularFireMessagingModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -57,6 +62,7 @@ import { PostComponent } from './shared/post/post.component';
     MatChipsModule,
     MatSlideToggleModule,
     TextModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     AngularFontAwesomeModule,
     CommonModule,
@@ -84,7 +90,7 @@ import { PostComponent } from './shared/post/post.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
