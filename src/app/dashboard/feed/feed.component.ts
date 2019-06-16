@@ -65,6 +65,7 @@ export class FeedComponent implements OnInit {
         this.post = {
           description: ''
         };
+        this.url = [];
         this.getPosts();
       },
       (err) => {
