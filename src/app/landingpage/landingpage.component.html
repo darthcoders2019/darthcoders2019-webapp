@@ -2,27 +2,30 @@
 
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
-      <h1 class="text-center mt-5" (focus)="speak('DarthCoders online news platform', false)" tabindex=4>
-        DarthCoders online news platform
+      <h1 class="text-center mt-5" (focus)="speak('DC LIVE', false)" tabindex=4>
+        DC LIVE
       </h1>
+      <span class="d-flex justify-content-center" (focus)="speak('Join our hands together to share knowledge and track the progress of impairments affecting people around us.', false)">
+        Join our hands together to share knowledge and track the progress of impairments affecting people around us. 
+      </span>
     </div>
   </div>
 
-  <div class="row mt-2 text-center">
+  <div class="row mt-lg-5 mt-lg-5 mt-lg-2 mb-lg-5 mb-lg-5 mb-lg-2 text-center">
     <div class="col-lg-6 col-md-6 col-sm-6">
       <button type="button" class="button button--primary" (click)="useSpeechModule()"
         (focus)="speak('Speech button, press enter or say speech via your microphone', true)" tabindex=6
-        [ngSpeechActionCommand]="'speech'" [ngSpeechAction]="order"><i class="fa fa-microphone"></i>Speech</button>
+        [ngSpeechActionCommand]="'speech'" [ngSpeechAction]="order"><i class="fa fa-microphone"></i> &nbsp; Speech</button>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6">
       <button type="button" class='button button--outline' (click)="useTextModule()"
         (focus)="speak('Text button, press enter or say text via your microphone', true)" tabindex=7
-        [ngSpeechActionCommand]="'Text'" [ngSpeechAction]="order"><i class="fa fa-keyboard"></i>Text</button>
+        [ngSpeechActionCommand]="'Text'" [ngSpeechAction]="order"><i class="fa fa-keyboard"></i> &nbsp; Text</button>
     </div>
   </div>
 
 
-  <div class="row mt-4">
+  <div class="row mt-4 mb-4">
     <div class="col-lg-6 col-md-6 col-sm-6 mb-3" *ngFor="let post of post_list">
       <div class="card p-4 h-100" tabindex=8 (focus)="speak(post.index)">
         <h3>{{ post.user_id.fullname || ' ' }}</h3>
@@ -31,7 +34,7 @@
         <div class="card-body">
           <!-- <h5 class="card-title">Card title</h5> -->
 
-          <p class="card-text" style="font-size: 1.5rem">
+          <p class="card-text" style="font-size: 1.5rem;">
             {{ post.description || ' ' }}
           </p>
           <hr>

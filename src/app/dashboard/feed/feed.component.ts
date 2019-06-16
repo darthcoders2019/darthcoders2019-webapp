@@ -52,7 +52,7 @@ export class FeedComponent implements OnInit {
     this.postService.getPosts(query).subscribe(
       (res: [any]) => {
         this.post_list = res.map((res_post) => {
-          res_post.post_date = moment(res_post.post_date).format('DD/MM/YY HH:mm')
+          res_post.post_date = moment(res_post.post_date).format('DD/MM/YY HH:mm A')
           return res_post;
         });
         this.ref.detectChanges();
