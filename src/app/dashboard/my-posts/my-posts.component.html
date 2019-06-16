@@ -1,5 +1,5 @@
 
-<div class="container" *ngIf="my_posts_list.length">
+<div class="container" *ngIf="my_posts_list.length" role="presentation">
     <div class="row mt-5 mb-5" *ngFor="let postitem of my_posts_list;">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <app-post [post]="postitem"></app-post>
@@ -8,3 +8,6 @@
         
       </div>
 </div>
+
+
+<br/><br/>
