@@ -5,8 +5,9 @@
       <h1 class="text-center mt-5" (focus)="speak('DC LIVE', false)" tabindex=4>
         DC LIVE
       </h1>
-      <span class="d-flex justify-content-center" (focus)="speak('Join our hands together to share knowledge and track the progress of impairments affecting people around us.', false)">
-        Join our hands together to share knowledge and track the progress of impairments affecting people around us. 
+      <span class="d-flex justify-content-center"
+        (focus)="speak('Join our hands together to share knowledge and track the progress of impairments affecting people around us.', false)">
+        Join our hands together to share knowledge and track the progress of impairments affecting people around us.
       </span>
     </div>
   </div>
@@ -15,7 +16,8 @@
     <div class="col-lg-6 col-md-6 col-sm-6">
       <button type="button" class="button button--primary" (click)="useSpeechModule()"
         (focus)="speak('Speech button, press enter or say speech via your microphone', true)" tabindex=6
-        [ngSpeechActionCommand]="'speech'" [ngSpeechAction]="order"><i class="fa fa-microphone"></i> &nbsp; Speech</button>
+        [ngSpeechActionCommand]="'speech'" [ngSpeechAction]="order"><i class="fa fa-microphone"></i> &nbsp;
+        Speech</button>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 mb-5">
       <button type="button" class='button button--outline' (click)="useTextModule()"
@@ -27,8 +29,8 @@
 
   <div class="row mt-4 mb-4">
     <div class="col-lg-6 col-md-6 col-sm-6 mb-3" *ngFor="let post of post_list">
-      <div class="card p-4 h-100 animated fadeIn" tabindex=8 (focus)="speak(post.index)">
-        <h3 class="textBlack">{{ post.user_id.fullname || ' ' }}</h3>
+      <div class="card p-4 h-100 animated fadeIn" tabindex=8 (focus)="speak(post.index)" *ngIf="post && post.user_id">
+        <h3 class="textBlack">{{ post.user_id.fullname}}</h3>
         <h5 class="textBlack">{{ post.post_date }}</h5>
         <img *ngIf="post.image_url" class="card-img-top" style="width:110px" [src]="post.image_url" alt="Post image">
         <div class="card-body">
@@ -37,7 +39,7 @@
           <p class="card-text textBlack" style="font-size: 1.5rem">
             {{ post.description || ' ' }}
           </p>
-          
+
         </div>
         <div class="card-footer cardFooterColor">
           <span><i class="fa fa-thumbs-up fa-2x"></i></span> {{ post.likes }} likes
@@ -47,4 +49,4 @@
   </div>
 </div>
 
-<br/>
+<br />
