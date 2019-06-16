@@ -28,6 +28,11 @@ export class PostService {
     return this.http[method](POST_URL + `${post.id || ''}`, post);
   }
 
+  myposts(query?) {
+    const _MYPOSTURL = "https://darthcoders-backend.herokuapp.com/api/private/myposts/";
+    return this.http.get(_MYPOSTURL, { params: query});
+  }
+
   deletePosts(post_id) {
     return this.http.delete(POST_URL);
   }

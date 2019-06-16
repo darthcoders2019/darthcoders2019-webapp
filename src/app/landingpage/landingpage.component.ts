@@ -66,7 +66,7 @@ export class LandingpageComponent implements OnInit {
       (res: [any]) => {
         this.post_list = res.map(res_post => {
           res_post.post_date = moment(res_post.post_date).format(
-            'DD/MM/YY HH:mm'
+            'DD/MM/YY HH:mm A'
           );
           return res_post;
         });
@@ -103,6 +103,22 @@ export class LandingpageComponent implements OnInit {
         console.error('An error occurred :', e);
       });
 
+    localStorage.setItem('key_selected', 'speech');
+    this.router.navigate(['text/login']);
+  }
+
+  order1() {
+    this.speech
+      .speak({
+        text: 'successful',
+        queue: false
+      })
+      .then(() => {})
+      .catch(e => {
+        console.error('An error occurred :', e);
+      });
+
+    localStorage.setItem('key_selected', 'text');
     this.router.navigate(['text/login']);
   }
 
@@ -125,10 +141,12 @@ export class LandingpageComponent implements OnInit {
   }
 
   public useSpeechModule(): void {
+    localStorage.setItem('key_selected', 'speech');
     this.router.navigate(['text/login']);
   }
 
   public useTextModule(): void {
+    localStorage.setItem('key_selected', 'text');
     this.router.navigate(['text/login']);
   }
 }

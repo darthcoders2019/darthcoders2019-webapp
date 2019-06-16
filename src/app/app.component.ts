@@ -54,6 +54,11 @@ export class AppComponent {
     });
 
     this.isDarkModeOn = true;
+    if (localStorage.length) {
+      const savedTheme = localStorage.getItem("theme");
+      this.isDarkModeOn = (savedTheme == "dark");
+    }
+
     this.toggleDarkMode({checked: this.isDarkModeOn})
     const userId = 'user001';
     this.messagingService.requestPermission(userId);
@@ -163,8 +168,10 @@ export class AppComponent {
 
     if (event && event.checked === true) {
       this.speak('Dark theme selected');
+      localStorage.setItem("theme", "dark");
     } else {
       this.speak('Light theme selected');
+      localStorage.setItem("theme", "light")
     }
   }
 

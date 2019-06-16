@@ -1,8 +1,8 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand mr-auto" href="#">
+    <a class="navbar-brand mr-auto" role="button" tabindex=0 routerLink="home">
       <img src="./assets/icons/anti.png" width="30" height="30" class="d-inline-block align-top mr-2" alt="Logo">
-      <span class="text-mode">DC Live</span>
+      <span class="text-mode">DC Live News</span>
     </a>
     <button class="ml-auto navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,16 +12,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active mr-4" *ngIf="isSignedIn">
-          <a class="nav-link navHeader mr-2" routerLink="/dashboard/feed"><span><i
+          <a class="nav-link navHeader mr-2" routerLink="/dashboard/feed" role="button" tabindex=1><span><i
                 class="fa fa-home fa-1x mr-2"></i>Home</span><span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item mr-4" *ngIf="isSignedIn">
-          <a class="nav-link navHeader mr-3" routerLink="/dashboard/my-posts"><span><i
+          <a class="nav-link navHeader mr-3" routerLink="/dashboard/my-posts" role="button" tabindex=2><span><i
                 class="fa fa-edit fa-1x mr-2"></i>My posts</span></a>
         </li>
 
         <li class="nav-item mr-4" *ngIf="isSignedIn">
-          <a class="nav-link navHeader mr-3 cursor-pointer" (click)="logout()"><span><i
+          <a class="nav-link navHeader mr-3 cursor-pointer" (click)="logout()" role="button" tabindex=3><span><i
                 class="fa fa-sign-out-alt fa-1x mr-2"></i>Logout</span></a>
         </li>
 
@@ -38,9 +38,9 @@
           </li> -->
 
           <li class="nav-item mt-2"
-            (focus)="speak('Theme button,to chose light or dark theme press tab and then space button')" tabindex=2>
+            (focus)="speak('Theme button,to chose light or dark theme press tab and then space button')" tabindex=5>
             <label class="mb-0 mr-1 text-mode">Light mode</label>
-            <mat-slide-toggle (change)="toggleDarkMode($event)" [(ngModel)]="isDarkModeOn" tabindex=3>Dark mode
+            <mat-slide-toggle (change)="toggleDarkMode($event)" [(ngModel)]="isDarkModeOn" tabindex=6>Dark mode
             </mat-slide-toggle>
           </li>
 

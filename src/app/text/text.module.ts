@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { TextRoutingModule } from './text-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SpeechModule } from 'ngx-speech';
 
 import { AuthService } from '../auth.service';
 
@@ -14,10 +15,9 @@ import { AuthService } from '../auth.service';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    TextRoutingModule
-  ], 
-  providers: [
-    AuthService
-  ]
+    TextRoutingModule,
+    SpeechModule
+  ],
+  providers: [AuthService]
 })
-export class TextModule { }
+export class TextModule {}
