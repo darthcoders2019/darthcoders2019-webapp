@@ -40,9 +40,10 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AuthGuard } from './auth.guard';
 import { ApiInterceptor } from './api.interceptor';
 import { PostComponent } from './shared/post/post.component';
+import { MyPostsComponent } from './dashboard/my-posts/my-posts.component';
 
 @NgModule({
-  declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent, PostComponent],
+  declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent, PostComponent, MyPostsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
