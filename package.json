@@ -42,6 +42,7 @@
     "moment": "^2.24.0",
     "ngx-bootstrap": "^4.2.0",
     "ngx-chips": "^2.0.2",
+    "ngx-pagination": "^4.0.0",
     "ngx-speech": "0.0.8",
     "ngx-toastr": "^10.0.4",
     "ngx-wow": "^2.0.1",

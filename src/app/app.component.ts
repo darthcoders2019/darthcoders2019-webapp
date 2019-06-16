@@ -12,6 +12,7 @@ import { ThemeService } from './theme-service.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title;
   speech;
   message;
   isDarkModeOn;
@@ -31,6 +32,12 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    this.translateService
+      .get('landingPage', { value: 'title' })
+      .subscribe((res: any) => {
+        this.title = res.title;
+      });
+
     this.speech.init({
       volume: 1,
       lang: 'en-GB',
@@ -53,10 +60,11 @@ export class AppComponent {
     this.message = this.messagingService.currentMessage;
   }
 
-  speak() {
+  speak(text) {
     this.speech
       .speak({
-        text: 'ki gogot tashley'
+        text: text,
+        queue: false
       })
       .then(() => {
         console.log('Success !');
@@ -96,19 +104,60 @@ export class AppComponent {
         }
       });
 
-    this.translateService.use(language);
+    // this.translateService.use(language);
   }
 
   public toggleFrenchLanguage(event): void {
     event && event.checked === true
       ? this.translateService.use('fr')
       : this.translateService.use('en');
+
+    if (event && event.checked === true)
+      this.speech.init({
+        volume: 1,
+        lang: 'fr-CA',
+        rate: 1,
+        pitch: 1,
+        voice: 'Amelie',
+        splitSentences: true,
+        listeners: {
+          onvoiceschanged: voices => {
+            //console.log('Event voiceschanged', voices);
+          }
+        }
+      });
+    else
+      this.speech.init({
+        volume: 1,
+        lang: 'en-GB',
+        rate: 1,
+        pitch: 1,
+        voice: 'Google UK English Female',
+        splitSentences: true,
+        listeners: {
+          onvoiceschanged: voices => {
+            //console.log('Event voiceschanged', voices);
+          }
+        }
+      });
+
+    this.translateService
+      .get('landingPage', { value: 'title' })
+      .subscribe((res: any) => {
+        this.title = res.title;
+      });
   }
 
   public toggleDarkMode(event): void {
     event && event.checked === true
       ? this.themeService.toggleDark()
       : this.themeService.toggleLight();
+
+    if (event && event.checked === true) {
+      this.speak('Dark theme selected');
+    } else {
+      this.speak('Light theme selected');
+    }
   }
 
   public logout() {
