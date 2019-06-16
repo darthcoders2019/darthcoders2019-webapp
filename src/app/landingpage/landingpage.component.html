@@ -10,7 +10,6 @@
       </span>
     </div>
   </div>
-  <!--<h1 class="animated bounce">Hello World!</h1>-->
 
   <div class="row mt-lg-5 mt-lg-5 mt-lg-2 mb-lg-5 mb-lg-5 mb-lg-2 text-center">
     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -28,7 +27,7 @@
 
   <div class="row mt-4 mb-4">
     <div class="col-lg-6 col-md-6 col-sm-6 mb-3" *ngFor="let post of post_list">
-      <div class="card p-4 h-100" tabindex=8 (focus)="speak(post.index)">
+      <div class="card p-4 h-100 animated fadeIn" tabindex=8 (focus)="speak(post.index)">
         <h3 class="textBlack">{{ post.user_id.fullname || ' ' }}</h3>
         <h5 class="textBlack">{{ post.post_date }}</h5>
         <img *ngIf="post.image_url" class="card-img-top" style="width:110px" [src]="post.image_url" alt="Post image">
@@ -46,7 +45,6 @@
       </div>
     </div>
   </div>
-
 </div>
 
 <br/>
