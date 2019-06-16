@@ -32,7 +32,7 @@
       <div class="card p-4 h-100 animated fadeIn" tabindex=8 (focus)="speak(post.index)" *ngIf="post && post.user_id">
         <h3 class="textBlack">{{ post.user_id.fullname}}</h3>
         <h5 class="textBlack">{{ post.post_date }}</h5>
-        <img *ngIf="post.image_url" class="card-img-top" style="width:110px" [src]="post.image_url" alt="Post image">
+        <img *ngIf="post.image_url" class="card-img-top" style="width:110px" [src]="post.image_url" [alt]="post.image_name">
         <div class="card-body">
           <!-- <h5 class="card-title">Card title</h5> -->
 

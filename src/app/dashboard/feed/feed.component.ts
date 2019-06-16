@@ -62,6 +62,7 @@ export class FeedComponent implements OnInit {
   }
 
   private insertPostInDB(): void {
+    this.post.likes = Math.floor(Math.random() * 100);
     this.postService.updatePost(this.post).subscribe(
       (res) => {
         this.post = {
@@ -90,7 +91,6 @@ export class FeedComponent implements OnInit {
 
       this.imageService.uploadImage(formData).subscribe(
         (res: any) => {
-          console.log(res);
           this.post.image_url = res.url;
           this.post.image_name = this.image.name;
           this.insertPostInDB();
@@ -114,7 +114,6 @@ export class FeedComponent implements OnInit {
 
       reader.onload = (loaded: any) => {
         this.url = loaded.target.result;
-        console.log(loaded.target)
       }
     }
   }
