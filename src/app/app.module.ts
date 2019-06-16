@@ -44,6 +44,7 @@ import { AuthGuard } from './auth.guard';
 import { ApiInterceptor } from './api.interceptor';
 import { PostComponent } from './shared/post/post.component';
 import { MyPostsComponent } from './dashboard/my-posts/my-posts.component';
+import {NgwWowModule} from 'ngx-wow';
 
 @NgModule({
   declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent, PostComponent, MyPostsComponent],
@@ -66,6 +67,7 @@ import { MyPostsComponent } from './dashboard/my-posts/my-posts.component';
     HttpClientModule,
     AngularFontAwesomeModule,
     CommonModule,
+    NgwWowModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
