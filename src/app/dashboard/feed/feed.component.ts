@@ -3,7 +3,6 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Router } from "@angular/router";
 import { PostService } from '../../post.service';
 import { ImageService } from '../../image.service';
-import { MatChipInputEvent } from '@angular/material/chips';
 import * as moment from 'moment';
 
 @Component({
