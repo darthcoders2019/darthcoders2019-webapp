@@ -1,30 +1,34 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#">
-      <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
-      Website
+    <a class="navbar-brand mr-auto" href="#">
+      <img src="./assets/icons/anti.png" width="30" height="30" class="d-inline-block align-top mr-2" alt="Logo">
+      <span class="text-mode">DC Live</span>
     </a>
+    <button class="ml-auto navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active mr-4" *ngIf="isSignedIn">
           <a class="nav-link navHeader mr-2" routerLink="/dashboard/feed"><span><i
-                class="fa fa-home fa-1x mr-2"></i></span>Home <span class="sr-only">(current)</span></a>
+                class="fa fa-home fa-1x mr-2"></i>Home</span><span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item mr-4" *ngIf="isSignedIn">
           <a class="nav-link navHeader mr-3" routerLink="/dashboard/my-posts"><span><i
-                class="fa fa-edit fa-1x mr-2"></i></span>My posts</a>
+                class="fa fa-edit fa-1x mr-2"></i>My posts</span></a>
         </li>
 
         <li class="nav-item mr-4" *ngIf="isSignedIn">
           <a class="nav-link navHeader mr-3 cursor-pointer" (click)="logout()"><span><i
-                class="fa fa-sign-out-alt fa-1x mr-2"></i></span>Logout</a>
+                class="fa fa-sign-out-alt fa-1x mr-2"></i>Logout</span></a>
         </li>
 
-        <li class="nav-item mt-2 mr-4 navHeader">
-          <label class="mb-0 mr-1">English</label>
+        <!--<li class="nav-item mt-2 mr-4 navHeader">
+          <label class="mb-0 mr-1 text-mode">English</label>
           <mat-slide-toggle (change)="toggleFrenchLanguage($event)">French</mat-slide-toggle>
-        </li>
+        </li>-->
 
         <ul class="navbar-nav ml-auto">
           <!-- <li class="nav-item mt-2 mr-4" (focus)="speak('Welcome to the website', false)" tabindex=2>
@@ -35,7 +39,7 @@
 
           <li class="nav-item mt-2"
             (focus)="speak('Theme button,to chose light or dark theme press tab and then space button')" tabindex=2>
-            <label class="mb-0 mr-1">Light mode</label>
+            <label class="mb-0 mr-1 text-mode">Light mode</label>
             <mat-slide-toggle (change)="toggleDarkMode($event)" [(ngModel)]="isDarkModeOn" tabindex=3>Dark mode
             </mat-slide-toggle>
           </li>
