@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../post.service';
 
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import * as moment from 'moment';
 
 @Component({
@@ -10,7 +10,6 @@ import * as moment from 'moment';
   styleUrls: ['./my-posts.component.scss']
 })
 export class MyPostsComponent implements OnInit {
-
   public my_posts_list;
 
   constructor(private postService: PostService, private router: Router) {
@@ -22,23 +21,25 @@ export class MyPostsComponent implements OnInit {
   }
 
   private getMyPosts() {
-    const user_id = sessionStorage.getItem("id");
+    const user_id = sessionStorage.getItem('id');
 
     const query: any = {
-      'user_id': user_id,
-      'populate': 'user_id',
-      'sort': '-post_date'
+      user_id: user_id,
+      populate: 'user_id',
+      sort: '-post_date'
     };
 
-    this.postService.getPosts(query).subscribe(
+    this.postService.getPosts2(query).subscribe(
       (res: [any]) => {
-        console.log(res)
-        this.my_posts_list = res.map((res_post) => {
-          res_post.post_date = moment(res_post.post_date).format('DD/MM/YY HH:mm')
+        console.log(res);
+        this.my_posts_list = res.map(res_post => {
+          res_post.post_date = moment(res_post.post_date).format(
+            'DD/MM/YY HH:mm'
+          );
           return res_post;
         });
       },
-      (err) => {
+      err => {
         // toast error
       }
     );
@@ -51,5 +52,4 @@ export class MyPostsComponent implements OnInit {
   public goToMySettings() {
     this.router.navigate(['dashboard/my-settings']);
   }
-
 }
