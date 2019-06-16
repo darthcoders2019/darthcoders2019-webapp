@@ -45,4 +45,16 @@ textarea {
     padding-right: 0px;
     background-color: white;
     border: none;
+    img {
+        margin-bottom: 30px;
+    }
+}
+
+.card {
+    &-mode,.cameraBtn {
+        background-color: var(--card-color);
+    }
+    .row-flex {
+        align-items: flex-end;
+    }
 }
