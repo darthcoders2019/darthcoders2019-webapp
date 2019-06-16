@@ -4,12 +4,14 @@ export const lightTheme = {
   'text-color': '#000',
   'background-color': '#fff',
   'nav-color': '#e5e5e5',
+  'card-color' : 'fff'
 };
 
 export const darkTheme = {
   'text-color': '#fff',
   'background-color': '#1f2935',
   'nav-color': '#1D1D1D',
+  'card-color' : '#434f5a'
 
 };
 
