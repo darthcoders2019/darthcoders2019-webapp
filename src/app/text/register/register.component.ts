@@ -67,6 +67,9 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    if (localStorage.length) {
+      this.newUser.fcmToken = localStorage.getItem('fcmToken');
+    }
     
 
     this.authService.register(this.newUser).subscribe(
