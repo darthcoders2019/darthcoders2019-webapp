@@ -28,7 +28,7 @@
 
         <li class="nav-item mt-2 navHeader">
           <label class="mb-0 mr-1">Light mode</label>
-          <mat-slide-toggle (change)="toggleDarkMode($event)">Dark mode</mat-slide-toggle>
+          <mat-slide-toggle (change)="toggleDarkMode($event)" [(ngModel)]="isDarkModeOn">Dark mode</mat-slide-toggle>
         </li>
       </ul>
     </div>
@@ -36,11 +36,8 @@
 
 </header>
 
-<!--<h1>{{ 'menu.title' | translate}}</h1>-->
 <router-outlet></router-outlet>
-<!-- 
-{{ message | async | json }}
-{{ 'menu.title' | translate}} -->
+
 <!-- Footer -->
 <footer class="page-footer">
   <div class="footer-copyright text-center py-3">© 2019 Copyright: Darth Coders - WebCup 2019

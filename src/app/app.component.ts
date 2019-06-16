@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { MessagingService } from './shared/messaging.service';
+import {Router} from "@angular/router";
 import Speech from 'speak-tts';
 
 import { ThemeService } from './theme-service.service';
@@ -11,12 +12,13 @@ import { ThemeService } from './theme-service.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'darthcoders2019-webapp';
   speech;
   message;
+  isDarkModeOn;
 
   constructor(
     private messagingService: MessagingService,
+    private router: Router,
     private translateService: TranslateService,
     private themeService: ThemeService
   ) {
@@ -42,6 +44,9 @@ export class AppComponent {
         }
       }
     });
+
+    this.isDarkModeOn = true;
+    this.toggleDarkMode({checked: this.isDarkModeOn})
     const userId = 'user001';
     this.messagingService.requestPermission(userId);
     this.messagingService.receiveMessage();
@@ -104,5 +109,10 @@ export class AppComponent {
     event && event.checked === true
       ? this.themeService.toggleDark()
       : this.themeService.toggleLight();
+  }
+
+  public logout() {
+    sessionStorage.clear();
+    this.router.navigate(['home']);
   }
 }
