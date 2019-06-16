@@ -2,12 +2,6 @@ nav{
     border-bottom: 1px solid whitesmoke;
 }
 
-@media screen and (min-width: 600px) {
-    .navDesktop{
-        display:none;
-    }
-}
-
 .navHeader{
     text-decoration: none !important;
     color: black !important;
@@ -16,4 +10,7 @@ nav{
 .page-footer{
     background-color: black;
     color:white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

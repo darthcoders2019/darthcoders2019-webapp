@@ -5,9 +5,9 @@
       <h1 class="text-center mt-5" (focus)="speak('Welcome to the website', false)" tabindex=1>Welcome to the website!
       </h1>
       <br />
-      <p class="text-center"
+      <h2 class="text-center"
         (focus)="speak('Please select an option between speech and text to browse the website', false)" tabindex=2>
-        Please select an option between speech and text to browse the website:</p>
+        Please select an option between speech and text to browse the website:</h2>
     </div>
   </div>
 
@@ -21,11 +21,12 @@
   <div class="row mt-5 text-center">
     <div class="col-lg-6 col-md-6 col-sm-6 mb-3">
       <button type="button" class="button button--primary" (click)="useSpeechModule()"
-        (focus)="speak('Speech button press if vision issue', true)" tabindex=3>Speech</button>
+        (focus)="speak('Speech button press if vision issue', true)" tabindex=3><i class="fa fa-microphone"></i>
+        <span class="pl-3">Speech</span></button>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6">
       <button type="button" class='button button--outline' (click)="useTextModule()" (focus)="speak('Text', true)"
-        tabindex=4>Text</button>
+        tabindex=4><i class="fa fa-keyboard"></i><span class="pl-3">Text</span></button>
     </div>
   </div>
 
