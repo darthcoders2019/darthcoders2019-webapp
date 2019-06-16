@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import {Router} from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.user = {};
   }
@@ -28,15 +30,14 @@ export class LoginComponent implements OnInit {
   }
 
   public login(): void {
-    console.log('asd', this.user);
 
     if (!this.user.email) {
-      console.error("Please insert your email.");
+      this.toastr.error('Please insert your email.');
       return;
     }
 
     if (!this.user.password) {
-      console.error("Please insert your password.");
+      this.toastr.error('Please insert your password.');
       return;
     }
 
@@ -50,9 +51,9 @@ export class LoginComponent implements OnInit {
       },
       (err) => { 
         if (err.error && err.error.error) {
-          console.error('invalid credentials');
+          this.toastr.error('Invalid combination of credentials.');
         } else {
-          console.error('server error');
+          this.toastr.error('Server error. Please try later');
         }
       }
     );

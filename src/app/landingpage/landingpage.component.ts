@@ -44,7 +44,7 @@ export class LandingpageComponent implements OnInit {
 
   private getPosts(): void {
     const query: any = {
-      'sort': '-post_date',
+      'sort': 'post_date',
       'populate': 'user_id'
     }
 

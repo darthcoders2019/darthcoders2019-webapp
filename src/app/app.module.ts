@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 import Speech from 'speak-tts';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -58,6 +59,7 @@ import { MyPostsComponent } from './dashboard/my-posts/my-posts.component';
     MatChipsModule,
     MatSlideToggleModule,
     TextModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     AngularFontAwesomeModule,
     CommonModule,
