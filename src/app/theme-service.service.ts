@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 export const lightTheme = {
   'text-color': '#1f2935',
   'background-color': '#efefef',
-  'nav-color': '#c4c4c4',
+  'nav-color': '#dddddd',
   'card-color' : '#fff',
 };
 
