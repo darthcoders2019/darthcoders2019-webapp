@@ -1,4 +1,4 @@
-<div class="card p-4">
+<article class="card p-4">
   <h3>{{ post.user_id.fullname }}</h3>
   <h5>{{ post.post_date }}</h5>
   <img *ngIf="post.image_url" class="card-img-top" style="width:150px" [src]="post.image_url" alt="Post image">
@@ -11,4 +11,4 @@
     <hr>
     <span><i class="fa fa-thumbs-up fa-2x"></i></span> {{ post.likes }} likes
   </div>
-</div>
+</article>
