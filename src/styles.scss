@@ -38,31 +38,31 @@ h1,h2,h3,h4,h5,h6,span,p,.text-mode {
     // width: 80%;
     // height:200px;
     &--primary {
-        color: white; 
+        color: var(--text-color);
         border: solid 3px transparent;
         background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #78e4ff, #ff48fa);
         background-origin: border-box;
         background-clip: content-box, border-box;
         box-shadow: 2px 3px 24px 2px linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #78e4ff, #ff48fa);
         &:hover  {
-            color: black;
-            box-shadow: 2px 1000px 1px #fff inset;
+            color: var(--text-color);
+            box-shadow: 2px 1000px 1px var(--background-color) inset;
             
         }
     }
 
     &--outline {
-        color: black; 
+        color: var(--text-color); 
         border: solid 3px transparent;
         box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
         border: solid 3px transparent;
         background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #78e4ff, #ff48fa);
         background-origin: border-box;
         background-clip: content-box, border-box;
-        box-shadow: 2px 1000px 1px #fff inset;
+        box-shadow: 2px 1000px 1px var(--background-color)inset;
         &:hover  {
             box-shadow: none;
-            color: white;
+            color: var(--text-color);
             
         }
     }
@@ -75,4 +75,8 @@ h1,h2,h3,h4,h5,h6,span,p,.text-mode {
 
 .textBlack{
     color : black;
+}
+
+.cardFooterColor{
+    background-color: white;
 }
