@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Speech from 'speak-tts';
 import { SpeechService } from 'ngx-speech';
+import { PostService } from '../post.service';
+
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-landingpage',
@@ -11,12 +14,15 @@ import { SpeechService } from 'ngx-speech';
 export class LandingpageComponent implements OnInit {
   speech;
 
-  constructor(private router: Router, public speechService: SpeechService) {
+  public post_list;
+
+  constructor(private router: Router, public speechService: SpeechService, private postService: PostService) {
     this.speech = new Speech(); // will throw an exception if not browser supported
     if (this.speech.hasBrowserSupport()) {
       // returns a boolean
       console.log('speech synthesis supported');
     }
+    this.post_list = [];
   }
 
   ngOnInit() {
@@ -34,6 +40,25 @@ export class LandingpageComponent implements OnInit {
         }
       }
     });
+    this.getPosts();
+  }
+
+  private getPosts(): void {
+    const query: any = {
+      'sort': '-post_date',
+      'populate': 'user_id'
+    }
+
+    this.postService.getPosts(query).subscribe(
+      (res: [any]) => {
+        this.post_list = res.map((res_post) => {
+          res_post.post_date = moment(res_post.post_date).format('DD/MM/YY HH:mm')
+          return res_post;
+        });
+      },
+      (err) => {
+        // toast error
+      });
   }
 
   order() {

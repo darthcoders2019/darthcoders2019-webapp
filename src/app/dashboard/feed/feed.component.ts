@@ -42,7 +42,7 @@ export class FeedComponent implements OnInit {
   }
 
   private getPosts(): void {
-    let query: any = {
+    const query: any = {
       'sort': '-post_date',
       'populate': 'user_id'
     };
