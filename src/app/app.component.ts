@@ -42,7 +42,8 @@ export class AppComponent {
         }
       }
     });
-
+    const userId = 'user001';
+    this.messagingService.requestPermission(userId);
     this.messagingService.receiveMessage();
     this.message = this.messagingService.currentMessage;
   }

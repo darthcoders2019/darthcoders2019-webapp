@@ -26,7 +26,6 @@ export class LandingpageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.speechService.start();
     this.speech.init({
       volume: 1,
       lang: 'en-GB',
@@ -67,7 +66,8 @@ export class LandingpageComponent implements OnInit {
     this.router.navigate(['text/login']);
   }
 
-  speak(text) {
+  speak(text, startSpeechAction) {
+    if (startSpeechAction) this.speechService.start();
     this.speech
       .speak({
         text: text
