@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core'
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import Speech from 'speak-tts';
@@ -20,6 +20,8 @@ import { MessagingService } from './shared/messaging.service';
 import { AsyncPipe } from '@angular/common';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 import { environment } from '../environments/environment';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 
@@ -50,6 +52,7 @@ import { MyPostsComponent } from './dashboard/my-posts/my-posts.component';
     AppRoutingModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    NgxPaginationModule,
     SpeechModule,
     AngularFireMessagingModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -87,7 +90,7 @@ import { MyPostsComponent } from './dashboard/my-posts/my-posts.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);

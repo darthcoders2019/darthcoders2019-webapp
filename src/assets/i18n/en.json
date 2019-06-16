@@ -1,5 +1,8 @@
 {
   "menu": {
     "title": "english"
+  },
+  "landingPage": {
+    "title": "DarthCoders online news platform"
   }
 }

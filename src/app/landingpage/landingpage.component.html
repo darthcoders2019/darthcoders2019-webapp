@@ -2,41 +2,61 @@
 
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
-      <h1 class="text-center mt-5" (focus)="speak('Welcome to the website', false)" tabindex=1>Welcome to the website!
+      <h1 class="text-center mt-5" (focus)="speak('DarthCoders online news platform', false)" tabindex=4>
+        DarthCoders online news platform
       </h1>
-      <br />
-      <h2 class="text-center"
-        (focus)="speak('Please select an option between speech and text to browse the website', false)" tabindex=2>
-        Please select an option between speech and text to browse the website:</h2>
     </div>
   </div>
 
-  <!-- <div [ngSpeechContext]="['pizza']" [ngSpeechAction]="order">
-    Say "pizza" and then choose your pizza
-  </div> -->
-
-  <li [ngSpeechActionCommand]="'test'" [ngSpeechAction]="order">test
-  </li>
-
-  <div class="row mt-5 text-center">
-    <div class="col-lg-6 col-md-6 col-sm-6 mb-3">
+  <div class="row mt-2 text-center">
+    <div class="col-lg-6 col-md-6 col-sm-6">
       <button type="button" class="button button--primary" (click)="useSpeechModule()"
-        (focus)="speak('Speech button press if vision issue', true)" tabindex=3><i class="fa fa-microphone"></i>
-        <span class="pl-3">Speech</span></button>
+        (focus)="speak('Speech button, press enter or say speech via your microphone', true)" tabindex=6
+        [ngSpeechActionCommand]="'speech'" [ngSpeechAction]="order"><i class="fa fa-microphone"></i>Speech</button>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6">
-      <button type="button" class='button button--outline' (click)="useTextModule()" (focus)="speak('Text', true)"
-        tabindex=4><i class="fa fa-keyboard"></i><span class="pl-3">Text</span></button>
+      <button type="button" class='button button--outline' (click)="useTextModule()"
+        (focus)="speak('Text button, press enter or say text via your microphone', true)" tabindex=7
+        [ngSpeechActionCommand]="'Text'" [ngSpeechAction]="order"><i class="fa fa-keyboard"></i>Text</button>
     </div>
   </div>
 
-  <div class="row mt-5 mb-5" *ngFor="let postitem of post_list;">
-    <div class="col-lg-3 col-md-3 col-sm-3"></div>
-    <div class="col-lg-6 col-md-6 col-sm-6">
-      <app-post [post]="postitem"></app-post>
-      <!-- [post] -->
+  <div>
+    <div class="row mt-5 mb-2" *ngFor="let post of post_list | paginate: { itemsPerPage: 1, currentPage: p };">
+      <div class="col-lg-2 col-md-2 col-sm-2"></div>
+      <div class="col-lg-8 col-md-8 col-sm-8" tabindex=7 (focus)="speak(post.index)">
+        <div class="card p-4">
+          <h3>{{ post.user_id.fullname }}</h3>
+          <h5>{{ post.post_date }}</h5>
+          <img *ngIf="post.image_url" class="card-img-top" style="width:110px" [src]="post.image_url" alt="Post image">
+          <div class="card-body">
+            <!-- <h5 class="card-title">Card title</h5> -->
+
+            <p class="card-text" style="font-size: 1.5rem">
+              {{ post.description }}
+            </p>
+            <hr>
+            <span><i class="fa fa-thumbs-up fa-2x"></i></span> {{ post.likes }} likes
+          </div>
+        </div>
+
+        <!-- [post] -->
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2"></div>
     </div>
-    <div class="col-lg-3 col-md-3 col-sm-3"></div>
+  </div>
+
+  <div class="row mt-5 mb-5">
+    <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="row justify-content-center" style="margin-left:-48px">
+        <pagination-controls (focus)="speak('Pagination menu press tab and then enter')" (pageChange)="p = $event"
+          tabindex=8>
+        </pagination-controls>
+
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2"></div>
   </div>
 
 </div>
