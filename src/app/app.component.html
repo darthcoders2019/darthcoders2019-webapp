@@ -1,38 +1,38 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">
-        <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
-        Website
+      <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
+      Website
     </a>
-    
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active mr-5">
-          <a class="nav-link navHeader mr-2" href="#"><span><i class="fa fa-home fa-1x"></i></span>Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item mr-5">
-          <a class="nav-link navHeader mr-3" href="#"><span><i class="fa fa-edit fa-1x"></i></span>My posts</a>
-        </li>
-        <li class="nav-item mr-5">
-          <a class="nav-link navHeader mr-3" href="#"><span><i class="fa fa-cog fa-1x"></i></span>Settings</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navHeader mr-3" href="#"><span><i class="fa fa-sign-out-alt fa-1x"></i></span>Logout</a>
-        </li>
-      </ul>
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item active mr-4">
+          <a class="nav-link navHeader mr-2" routerLink="/dashboard/feed"><span><i
+                class="fa fa-home fa-1x mr-2"></i></span>Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item mr-4">
+          <a class="nav-link navHeader mr-3" routerLink="/dashboard/my-posts"><span><i
+                class="fa fa-edit fa-1x mr-2"></i></span>My posts</a>
+        </li>
+
+        <li class="nav-item mr-4">
+          <a class="nav-link navHeader mr-3 cursor-pointer" (click)="logout()"><span><i
+                class="fa fa-sign-out-alt fa-1x mr-2"></i></span>Logout</a>
+        </li>
+
         <li class="nav-item mt-2 mr-4 navHeader">
           <label class="mb-0 mr-1">English</label>
           <mat-slide-toggle (change)="toggleFrenchLanguage($event)">French</mat-slide-toggle>
         </li>
-  
+
         <li class="nav-item mt-2 navHeader">
           <label class="mb-0 mr-1">Light mode</label>
           <mat-slide-toggle (change)="toggleDarkMode($event)">Dark mode</mat-slide-toggle>
         </li>
       </ul>
-      </div>
-    </nav>
+    </div>
+  </nav>
 
 </header>
 
