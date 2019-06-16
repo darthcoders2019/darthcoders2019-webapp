@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
+import { ToastrService } from 'ngx-toastr';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +13,9 @@ export class RegisterComponent implements OnInit {
 
   public newUser: any;
   constructor(
-    private authService: AuthService
+    private toastr: ToastrService,    
+    private authService: AuthService,
+    private router: Router
   ) {
     
   }
@@ -41,24 +46,24 @@ export class RegisterComponent implements OnInit {
 
   create_new_user(): void {
     if (!this.newUser.fullname) {
-      console.error("Please insert your fullname.");
+      this.toastr.error("Please insert your fullname.");
       return;
     }
     if (!this.newUser.email) {
-      console.error("Please insert your email address.");
+      this.toastr.error("Please insert your email address.");
       return;
     }
     if (!this.newUser.password) {
-      console.error("Please insert your password.");
+      this.toastr.error("Please insert your password.");
       return;
     }
     if (!this.newUser.confirmpassword) {
-      console.error("Please confirm your password.");
+      this.toastr.error("Please confirm your password.");
       return;
     }
-    console.log(this.newUser);
+
     if (this.newUser.password != this.newUser.confirmpassword) {
-      console.error("Your password and confirmation password do not match.");
+      this.toastr.error("Your password and confirmation password do not match.");
       return;
     }
 
@@ -66,10 +71,11 @@ export class RegisterComponent implements OnInit {
 
     this.authService.register(this.newUser).subscribe(
       (res) => {
-        console.log('OKAY', res)
+        this.toastr.success('Please login to validate your registration')
+        this.router.navigate(['text/login']);
       },
       (err) => {
-        console.error('FAILED', err)
+        this.toastr.error('A problem occured while creating your account.')
       }
     );
 

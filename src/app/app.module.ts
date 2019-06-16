@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 import Speech from 'speak-tts';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,9 +41,10 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AuthGuard } from './auth.guard';
 import { ApiInterceptor } from './api.interceptor';
 import { PostComponent } from './shared/post/post.component';
+import { MyPostsComponent } from './dashboard/my-posts/my-posts.component';
 
 @NgModule({
-  declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent, PostComponent],
+  declarations: [AppComponent, LandingpageComponent, FeedComponent, SettingsComponent, PostsComponent, PostComponent, MyPostsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -57,6 +59,7 @@ import { PostComponent } from './shared/post/post.component';
     MatChipsModule,
     MatSlideToggleModule,
     TextModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     AngularFontAwesomeModule,
     CommonModule,

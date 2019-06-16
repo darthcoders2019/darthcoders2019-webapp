@@ -3,12 +3,12 @@
   <h5>{{ post.post_date }}</h5>
   <img *ngIf="post.image_url" class="card-img-top" [src]="post.image_url" alt="Post image">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
+    <!-- <h5 class="card-title">Card title</h5> -->
 
     <p class="card-text" style="font-size: 1.5rem">
         {{ post.description }}
     </p>
     <hr>
-    <span><i class="fa fa-thumbs-up fa-2x"></i></span> 1000 likes
+    <span><i class="fa fa-thumbs-up fa-2x"></i></span> {{ post.likes }} likes
   </div>
 </div>

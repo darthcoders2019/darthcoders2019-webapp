@@ -42,7 +42,7 @@ export class FeedComponent implements OnInit {
   }
 
   private getPosts(): void {
-    let query: any = {
+    const query: any = {
       'sort': '-post_date',
       'populate': 'user_id'
     };
@@ -62,7 +62,10 @@ export class FeedComponent implements OnInit {
   private insertPostInDB(): void {
     this.postService.updatePost(this.post).subscribe(
       (res) => {
-        console.log('asd', res);
+        this.post = {
+          description: ''
+        };
+        this.getPosts();
       },
       (err) => {
         console.error(err);
@@ -95,8 +98,6 @@ export class FeedComponent implements OnInit {
     }
   }
 
-
-
   public onSelectFile(event) {
     this.url = '';
     this.image = null;
@@ -111,6 +112,14 @@ export class FeedComponent implements OnInit {
         console.log(loaded.target)
       }
     }
+  }
+
+  public goToMyPosts() {
+    this.router.navigate(['dashboard/my-posts']);
+  }
+
+  public goToMySettings() {
+    this.router.navigate(['dashboard/my-settings']);
   }
 
 }
