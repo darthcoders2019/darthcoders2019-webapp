@@ -1,7 +1,7 @@
 <div class="row mt-3 mr-2 ml-2">
   <div class="col-lg-3 col-md-3 col-sm-3 text-center mb-3">
     <button class="button button--primary mr-2" (click)="backToHomepage()" [ngSpeechActionCommand]="'backToHomepage'"
-      [ngSpeechAction]="back" (focus)="speak('Press enter or say back to redirect back', true)" tabindex=3>Back</button>
+      [ngSpeechAction]="'back'" (focus)="speak('Press enter or say back to redirect back', true)" tabindex=3>Back</button>
   </div>
   <div class="col-lg-9 col-md-9 col-sm-9 text-center mb-9">
 
@@ -70,13 +70,13 @@
         <div class="row mb-3 mr-2 ml-2">
           <div class="col-lg-6 col-md-6 col-sm-6 text-center mb-3">
             <button class="button button--primary mr-2" (click)="create_new_user()"
-              [ngSpeechActionCommand]="'create_new_user'" [ngSpeechAction]="create"
+              [ngSpeechActionCommand]="'create_new_user'" [ngSpeechAction]="'create'"
               (focus)="speak('Create my account, press enter or say create via your microphone', true)"
               tabindex=14>Create my account</button>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 text-center mb-3">
             <button class="button button--outline" (click)="reset_new_user()" [ngSpeechActionCommand]="'reset_new_user'"
-              [ngSpeechAction]="reset"
+              [ngSpeechAction]="'reset'"
               (focus)="speak('reset my account, press enter or say reset via your microphone', true)"
               tabindex=15>Reset</button>
           </div>
