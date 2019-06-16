@@ -34,8 +34,9 @@ export class PostService {
   }
 
   myposts(query?) {
-    const _MYPOSTURL = "https://darthcoders-backend.herokuapp.com/api/private/myposts/";
-    return this.http.get(_MYPOSTURL, { params: query});
+    const _MYPOSTURL =
+      'https://darthcoders-backend.herokuapp.com/api/private/myposts/';
+    return this.http.get(_MYPOSTURL, { params: query });
   }
 
   deletePosts(post_id) {

@@ -58,12 +58,14 @@ export class LandingpageComponent implements OnInit {
 
   private getPosts(): void {
     const query: any = {
-      sort: '-post_date',
-      populate: 'user_id'
+      // sort: '-post_date',
+      // populate: 'user_id'
     };
 
     this.postService.getPosts(query).subscribe(
       (res: [any]) => {
+        console.log(res);
+
         this.post_list = res.map(res_post => {
           res_post.post_date = moment(res_post.post_date).format(
             'DD/MM/YY HH:mm A'
