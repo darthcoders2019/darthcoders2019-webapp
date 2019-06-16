@@ -17,6 +17,7 @@ export class LandingpageComponent implements OnInit {
   title;
 
   public post_list;
+  public p;
 
   constructor(
     private router: Router,
