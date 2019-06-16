@@ -26,15 +26,15 @@ export class MyPostsComponent implements OnInit {
 
     const query: any = {
       'user_id': user_id,
-      'populate': 'user_id',
-      'sort': '-post_date'
+      // 'populate': 'user_id',
+      // 'sort': '-post_date'
     };
 
-    this.postService.getPosts(query).subscribe(
+    this.postService.myposts(query).subscribe(
       (res: [any]) => {
         console.log(res)
         this.my_posts_list = res.map((res_post) => {
-          res_post.post_date = moment(res_post.post_date).format('DD/MM/YY HH:mm')
+          res_post.post_date = moment(res_post.post_date).format('DD/MM/YY HH:mm A')
           return res_post;
         });
       },

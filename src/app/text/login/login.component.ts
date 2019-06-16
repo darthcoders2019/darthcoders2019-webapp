@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import Speech from 'speak-tts';
 import { SpeechService } from 'ngx-speech';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     public speechService: SpeechService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private _location: Location
   ) {
     this.speech = new Speech();
     if (this.speech.hasBrowserSupport()) {
@@ -69,6 +71,10 @@ export class LoginComponent implements OnInit {
         console.error('An error occurred :', e);
       });
     this.router.navigate(['/text/register']);
+  }
+
+  backToHomepage() {
+    this._location.back();
   }
 
   speak(text, startSpeechAction) {

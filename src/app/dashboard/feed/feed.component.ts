@@ -3,7 +3,6 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Router } from "@angular/router";
 import { PostService } from '../../post.service';
 import { ImageService } from '../../image.service';
-import { MatChipInputEvent } from '@angular/material/chips';
 import * as moment from 'moment';
 
 @Component({
@@ -52,7 +51,7 @@ export class FeedComponent implements OnInit {
     this.postService.getPosts(query).subscribe(
       (res: [any]) => {
         this.post_list = res.map((res_post) => {
-          res_post.post_date = moment(res_post.post_date).format('DD/MM/YY HH:mm')
+          res_post.post_date = moment(res_post.post_date).format('DD/MM/YY HH:mm A')
           return res_post;
         });
         this.ref.detectChanges();
